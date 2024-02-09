@@ -18,4 +18,17 @@
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.inner-page {
+  flex: 1;
+  flex-grow: 1;
+  justify-self: stretch;
+  padding: 2em;
+  height: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }/*# sourceMappingURL=globals.css.map */

@@ -1,16 +1,28 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import styles from "./navbar.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
-import InnerNav from "./InnerNav";
+import {  faPlus } from "@fortawesome/free-solid-svg-icons";
+import NavbarSearchItem from "./NavbarSearchItem";
 import UserNavBox from "./UserNavBox";
-import SearchBar from "./SearchBar";
+import { getPopularMovies, getPopularTVShows } from "@/app/api/movies/route";
 
-function Navbar() {
-    const [showSearchbar, setShowSearchbar] = useState<boolean>(false);
+import NavbarItem from "./NavbarItem";
+
+async function getInnerNavContent() {
+    const popularMovies = await getPopularMovies(1);
+    const popularTVShows = await getPopularTVShows(1);
+    return {
+        popularMovies,
+        popularTVShows,
+    };
+    
+}
+
+async function Navbar() {
+
+
+    const innerNavContent = await getInnerNavContent();
 
     const logged = true;
 
@@ -25,24 +37,10 @@ function Navbar() {
                     <li className={styles.navItem}>
                         <Link href="/">Home</Link>
                     </li>
-                    <li
-                        className={styles.navItem}
-                        onClick={() => setShowSearchbar((prev) => !prev)}
-                    >
-                        <FontAwesomeIcon
-                            className={styles.navIcon}
-                            icon={faMagnifyingGlass}
-                        />
-                        Search
-                    </li>
-                    <li className={styles.navItem}>
-                        Movies
-                        <InnerNav popular="movies" />
-                    </li>
-                    <li className={styles.navItem}>
-                        TV Series
-                        <InnerNav popular="tv series" />
-                    </li>
+                    <NavbarSearchItem />
+                    <NavbarItem title="Movies" popularContent={innerNavContent.popularMovies.results} />
+                    <NavbarItem title="TV Series" popularContent={innerNavContent.popularTVShows.results} />
+
                     <li className={styles.navItem}>
                         <FontAwesomeIcon
                             className={styles.navIcon}
@@ -53,7 +51,7 @@ function Navbar() {
                 </ul>
                 {logged ? <UserNavBox /> : <Link href="/login">Login</Link>}
             </div>
-            {showSearchbar && <SearchBar />}
+            
         </nav>
     );
 }

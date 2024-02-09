@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+.container:hover {
+  border: 2px solid #3b82f6;
+}
+
+.imageContainer {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  border-radius: 20px;
+}
+.imageContainer img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 20px;
+}/*# sourceMappingURL=movie.module.css.map */

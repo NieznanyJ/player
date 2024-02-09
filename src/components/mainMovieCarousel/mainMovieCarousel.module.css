@@ -13,7 +13,6 @@
   -o-object-position: top;
      object-position: top;
   filter: brightness(0.3);
-  border-radius: 20px;
   transition: all 0.2s ease;
   cursor: grab;
 }
@@ -43,6 +42,11 @@
 .carouselContent p:hover {
   opacity: 1;
   transition: all 0.2s ease;
+}
+@media screen and (max-width: 1200px) {
+  .carouselContent p {
+    display: none;
+  }
 }
 
 .button {

@@ -1,5 +1,5 @@
 .carouselWrapper {
-  padding: 1em;
+  padding: 1em 2em;
   width: 90%;
   margin: auto;
   gap: 1em;
@@ -7,6 +7,19 @@
 }
 .carouselWrapper h2 {
   margin-bottom: 2em;
+}
+@media screen and (max-width: 768px) {
+  .carouselWrapper h2 {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carouselWrapper {
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+  }
 }
 
 .carousel {
@@ -24,9 +37,16 @@
   width: 100%;
   border-radius: 20px;
   padding: 1em;
+  margin: 1px;
 }
-.carouselItem:hover {
-  border: 2px solid #3b82f6;
+@media screen and (max-width: 768px) {
+  .carouselItem {
+    padding: 0;
+  }
+  .carouselItem:hover {
+    border: 2px solid #3b82f6;
+    transition: all 0.2s ease;
+  }
 }
 
 .carouselImage {
@@ -40,7 +60,7 @@
   cursor: pointer;
 }
 
-.carouselContent h2 {
+.carouselContent h3 {
   display: flex;
   flex-wrap: wrap;
   max-width: 70%;

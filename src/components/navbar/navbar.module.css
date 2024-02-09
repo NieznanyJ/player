@@ -55,6 +55,8 @@
 }
 .navItem:hover .innerNavigation {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .navItem::after {
   content: "";
@@ -74,39 +76,6 @@
 .navIcon {
   width: 15px;
   height: 15px;
-}
-
-.innerNavigation {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  transform: translateX(-50%);
-  background-color: #000;
-  width: 100%;
-  padding: 1em;
-  z-index: 100;
-  min-width: 300px;
-  cursor: default;
-}
-.innerNavigation ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1em;
-}
-.innerNavigation ul li:hover {
-  color: #3b82f6;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.innerNavigationCategoryList {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
 }
 
 .userNavBox {
@@ -180,4 +149,86 @@
 .searchBar:active, .searchBar:focus {
   border: 2px solid #3b82f6;
   caret-color: #3b82f6;
+}
+
+.navbarSearchContainer {
+  height: 100%;
+}
+
+.innerNavigation {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateX(-50%);
+  background-color: #000;
+  width: 70vw;
+  min-width: 500px;
+  max-width: 950px;
+  padding: 1em;
+  z-index: 100;
+  min-width: 300px;
+  border-radius: 0 0 20px 20px;
+  cursor: default;
+}
+.innerNavigation:first-child {
+  display: flex;
+}
+.innerNavigation ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+}
+.innerNavigation ul li:hover {
+  color: #3b82f6;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.innerNavigationCategoryList {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.innerNavPopular {
+  padding-left: 2em;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  border-left: 2px solid #3b82f6;
+  width: 100%;
+  min-width: 800px;
+}
+
+.innerNavPopularItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 10px;
+  width: 225px;
+  height: auto;
+  min-height: 120px;
+  border-radius: 20px;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.innerNavPopularItemImage {
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }/*# sourceMappingURL=navbar.module.css.map */

@@ -1,0 +1,37 @@
+$black: #000;
+$white: #fff;
+$mainBlue: #3b82f6;
+$lighBlue: #60a5fa;
+
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+
+    &:hover{
+        border: 2px solid $mainBlue;
+    }
+
+}
+
+.imageContainer{
+    position: relative;
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+     
+    
+    img{
+        object-fit: cover;
+        object-position: center; 
+        border-radius: 20px;
+    }
+}

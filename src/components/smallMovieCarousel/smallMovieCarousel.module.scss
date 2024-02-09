@@ -3,18 +3,31 @@ $white: #fff;
 $mainBlue: #3b82f6;
 $lighBlue: #60a5fa;
 
-.carouselWrapper{
-    padding: 1em;
+.carouselWrapper {
+    padding: 1em 2em;
     width: 90%;
     margin: auto;
     gap: 1em;
     cursor: pointer;
 
-    h2{
+    h2 {
         margin-bottom: 2em;
+
+        @media screen and (max-width: 768px) {
+
+            padding-bottom: 0;
+            margin-bottom: 20px;
+        }
     }
 
-    
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        margin: 0;
+        padding: 1em;
+    }
+
+
 }
 
 .carousel {
@@ -25,7 +38,7 @@ $lighBlue: #60a5fa;
     padding: 1em;
 }
 
-.carouselItem{
+.carouselItem {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -33,10 +46,19 @@ $lighBlue: #60a5fa;
     border-radius: 20px;
     padding: 1em;
 
-    &:hover{
-        border: 2px solid $mainBlue;
+    margin: 1px;
+
+    @media screen and (max-width: 768px) {
+
+        padding: 0;
+
+        &:hover {
+            border: 2px solid $mainBlue;
+            transition: all 0.2s ease;
+        }
     }
-   
+
+
 }
 
 .carouselImage {
@@ -47,14 +69,18 @@ $lighBlue: #60a5fa;
     border-radius: 20px;
     cursor: pointer;
 
-    
+
 }
 
-.carouselContent{
-    h2{
+.carouselContent {
+    h3 {
         display: flex;
         flex-wrap: wrap;
         max-width: 70%;
         font-size: 1em;
+
+
+
     }
 }
+
