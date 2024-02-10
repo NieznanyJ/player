@@ -1,11 +1,6 @@
 import React from "react";
 import SmallMovieCarousel from "@/components/smallMovieCarousel/SmallMovieCarousel";
-import {
-    getPopularTVShows,
-    getPopularMovies,
-    getTrendingMovies,
-    getTrendingTVShows,
-} from "@/app/api/movies/route";
+import { getPopularMovies, getTrendingMovies, getPopularTVShows, getTrendingTVShows } from "@/lib/actions";
 
 async function CarouselWrapper({ title }: { title: string }) {
     var movies: any = null;

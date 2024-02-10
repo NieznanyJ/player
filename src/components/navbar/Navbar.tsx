@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faPlus } from "@fortawesome/free-solid-svg-icons";
 import NavbarSearchItem from "./NavbarSearchItem";
 import UserNavBox from "./UserNavBox";
-import { getPopularMovies, getPopularTVShows } from "@/app/api/movies/route";
+import { getPopularMovies, getPopularTVShows } from "@/lib/actions";
 
 import NavbarItem from "./NavbarItem";
 

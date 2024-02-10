@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./wrapper.module.css";
 import { Suspense } from "react";
 import CarouselWrapper from "./CarouselWrapper";
-import SmallMovieCarouselSkeleton from "@/components/loading/skeletons/SmallMovieCarouselSkeleton";
+import SmallMovieCarouselSkeleton from "@/components/loading/skeletons/carouselSkeleton/SmallMovieCarouselSkeleton";
 
 async function Wrapper() {
     const titles = [

@@ -1,0 +1,59 @@
+.container {
+  position: relative;
+  width: auto;
+  align-self: flex-start;
+}
+
+.genreList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding: 1em;
+  background-color: #000;
+  border-radius: 0 20px 20px 20px;
+  overflow: hidden;
+  z-index: 10;
+}
+.genreList li {
+  transition: all 0.2s ease;
+}
+.genreList li:hover {
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+.selectedGenre {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 1em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.selectedGenre:hover {
+  color: #3b82f6;
+}
+
+.hidden {
+  display: none;
+}
+
+.selectedGenreActive {
+  border: 2px solid #3b82f6;
+  border-radius: 10px 10px 10px 0;
+  padding: 1em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.selectedGenreActive:hover {
+  color: #3b82f6;
+}/*# sourceMappingURL=categoryFilter.module.css.map */

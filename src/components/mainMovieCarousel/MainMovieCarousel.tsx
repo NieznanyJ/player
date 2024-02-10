@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./mainMovieCarousel.module.css";
-import { getTrendingMovies } from "@/app/api/movies/route";
+import { getTrendingMovies } from "@/lib/actions";
 import { imagePath } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,8 +39,8 @@ function MainMovieCarousel() {
         arrows: true,
         autoplay: true,
         autoplaySpeed: 7000,
-        prevArrow: <SliderArrowLeft />,
-        nextArrow: <SliderArrowRight />
+        nextArrow: <SliderArrowRight currentSlide={0} slideCount={0} props={undefined} />,
+        prevArrow: <SliderArrowLeft currentSlide={0} slideCount={0} props={undefined} />,
     };
 
 

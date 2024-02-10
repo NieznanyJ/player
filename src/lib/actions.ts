@@ -8,10 +8,7 @@ const options = {
     },
 };
 
-async function getImagePath() {
-    const path = await process.env.NEXT_PUBLIC_IMG_PATH;
-    return path || "";
-}
+
 
 async function authenticate() {
     try {
@@ -107,22 +104,7 @@ async function getGenres() {
     }
 }
 
-async function getMoviesByGenre(genre: number, page: number) {
-    const genres = await getGenres();
 
-    const genreId = genres.genres.find((g: any) => g.id === genre);
-
-    try {
-        const res = await fetch(
-            `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreId.id}`,
-            options
-        );
-        const data = await res.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
-}
 
 async function getMovieTags(id: string) {
     try {
@@ -163,8 +145,63 @@ async function getMoviesByTag(tagId: string) {
     }
 }
 
+
+
+async function getMoviesByGenre(genre: number, page: number) {
+    const genres = await getGenres();
+
+    const genreId = genres.genres.find((g: any) => g.id === genre);
+
+    var res = null;
+    try {
+        if (genre) {
+            res = await fetch(
+                `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreId.id}`,
+                options
+            );
+        }
+        else{
+            res = await fetch(
+                `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
+                options
+            );
+        }
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+async function getTVShowsByGenre(genre: number, page: number) {
+    const genres = await getGenres();
+
+    const genreId = genres.genres.find((g: any) => g.id === genre);
+
+    var res = null;
+    try {
+        if (genre) {
+            res = await fetch(
+                `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreId.id}`,
+                options
+            );
+        }
+        else{
+            res = await fetch(
+                `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=popularity.desc`,
+                
+                options
+            );
+        }
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export {
-    getImagePath,
     authenticate,
     getPopularMovies,
     getPopularTVShows,
@@ -172,6 +209,7 @@ export {
     getTrendingTVShows,
     getMovieDetails,
     getMoviesByGenre,
+    getTVShowsByGenre,
     getMoviesByTag,
     getMovieTags,
     getSearchedMovies,

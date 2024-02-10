@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Movie from "./movie/Movie";
 import { useSearchParams } from "next/navigation";
 import styles from "./movieList.module.css";
-import Suspense from 'react'
+
 
 
 function MovieList({ movies }: { movies: any[] }) {
@@ -12,7 +12,7 @@ function MovieList({ movies }: { movies: any[] }) {
 
     const [movieList, setMovieList] = useState<any[]>([]);
 
-    function filterMovies() {
+    const filterMovies = useCallback(() => {
         const genre = searchParams.get("genre");
         if (genre) {
             const filteredMovies = movies.filter((movie) => {
@@ -22,10 +22,11 @@ function MovieList({ movies }: { movies: any[] }) {
         } else {
             setMovieList(movies);
         }
-    }
+    }, [searchParams, movies]);
+
     useEffect(() => {
         filterMovies();
-    }, [searchParams, movies]);
+    }, [filterMovies]);
 
     return (
         <div className={styles.container}>
