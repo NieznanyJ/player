@@ -91,6 +91,20 @@ async function getMovieDetails(movieId: number) {
     }
 }
 
+async function getTVShowDetails(tvShowId: number) {
+    try {
+        const res = await fetch(
+            `https://api.themoviedb.org/3/tv/${tvShowId}?language=en-US`,
+            options
+        );
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+
+}
+
 async function getGenres() {
     try {
         const res = await fetch(
@@ -208,6 +222,7 @@ export {
     getTrendingMovies,
     getTrendingTVShows,
     getMovieDetails,
+    getTVShowDetails,
     getMoviesByGenre,
     getTVShowsByGenre,
     getMoviesByTag,

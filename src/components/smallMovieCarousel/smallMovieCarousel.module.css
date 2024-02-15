@@ -8,6 +8,9 @@
 .carouselWrapper h2 {
   margin-bottom: 2em;
 }
+.carouselWrapper h2:hover {
+  text-decoration: underline;
+}
 @media screen and (max-width: 768px) {
   .carouselWrapper h2 {
     padding-bottom: 0;

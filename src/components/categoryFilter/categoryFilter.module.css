@@ -3,6 +3,13 @@
   width: auto;
   align-self: flex-start;
 }
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
 
 .genreList {
   position: absolute;
@@ -31,8 +38,36 @@
   color: #3b82f6;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .genreList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0;
+    gap: 1em;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+  .genreList li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #fff;
+  }
+  .genreList li:last-child {
+    border: none;
+  }
+}
 
 .selectedGenre {
+  min-width: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
   border: 2px solid #fff;
   border-radius: 10px;
   padding: 1em;
@@ -48,6 +83,8 @@
 }
 
 .selectedGenreActive {
+  display: flex;
+  justify-content: space-between;
   border: 2px solid #3b82f6;
   border-radius: 10px 10px 10px 0;
   padding: 1em;

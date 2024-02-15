@@ -3,6 +3,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import styles from "./categoryFilter.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 function CategoryFilter({
     genres,
@@ -14,15 +16,8 @@ function CategoryFilter({
     const pathname = usePathname();
     const router = useRouter();
 
-    const genre = params.get("genre");
-    const currentGenre = genres.find(
-        (g) => g.id === parseInt(genre || "0", 10)
-    );
-
-    const [selectedGenre, setSelectedGenre] = useState<string>(
-        genre ? currentGenre?.name || "All" : "All"
-    );
     const [genreListOpen, setGenreListOpen] = useState<boolean>(false);
+    const [selectedGenre, setSelectedGenre] = useState<string>("");
 
     function handleGenreChange(genreId: number) {
         genreId === 0
@@ -34,6 +29,7 @@ function CategoryFilter({
     const filterRef = useRef<HTMLDivElement>(null);
     const listRef = useRef<HTMLUListElement>(null);
 
+    //Closes the genre list when clicking outside of it
     useEffect(() => {
         const handleClick = (e: MouseEvent) => {
             if (
@@ -46,14 +42,21 @@ function CategoryFilter({
             }
         };
 
-        
         document.addEventListener("click", handleClick);
         return () => document.removeEventListener("click", handleClick);
     }, []);
 
-    useEffect(()=> {
-        setSelectedGenre("All");
-    },[pathname])
+    useEffect(() => {
+        const genre = params.get("genre");
+        if (genre) {
+            const currentGenre = genres.find(
+                (g) => g.id === parseInt(genre || "0")
+            );
+            setSelectedGenre(currentGenre?.name || "All");
+        } else {
+            setSelectedGenre("All");
+        }
+    }, [pathname, params]);
 
     return (
         <div className={styles.container}>
@@ -67,6 +70,8 @@ function CategoryFilter({
                 onClick={() => setGenreListOpen((prev) => !prev)}
             >
                 {selectedGenre}
+                <FontAwesomeIcon
+                    icon={genreListOpen ? faChevronUp : faChevronDown} />
             </div>
             <ul
                 ref={listRef}

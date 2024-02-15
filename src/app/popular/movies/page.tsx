@@ -14,7 +14,7 @@ async function PopularMovies({searchParams}:{searchParams: any}  ) {
 
 
   return (
-    <div className="inner-page">
+    <div >
       <h1>Popular movies</h1>
       <MovieList movies={movies.results} />
 

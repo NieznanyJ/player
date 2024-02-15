@@ -8,27 +8,28 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 function MovieDetails({ movie }: { movie: any }) {
 
     const logged = true;
+    console.log(movie[0])
 
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
                 <Image
-                    src={`${imagePath}${movie.backdrop_path}`}
+                    src={`${imagePath}${movie.backdrop_path ? movie.backdrop_path : movie.poster_path }`}
                     alt={movie.title}
                     fill
                 />
             </div>
             <div className={styles.infoContainer}>
-                <h1>{movie.title}</h1>
+                <h1>{movie.title ? movie.title : movie.name}</h1>
                 <div className={styles.innerInfo}>
                     <div className={styles.categoryInfo}>
-                        {movie.genres.map(
+                        {movie.genres && movie.genres.map(
                             (genre: { id: number; name: string }) => {
                                 return <span key={genre.id}>{genre.name}</span>;
                             }
                         )}
                     </div>
-                    <span>{movie.release_date.slice(0,4)}</span>
+                    <span>{movie.release_date ? movie.release_date.slice(0,4) : movie.first_air_date.slice(0,4)}</span>
                     {/* <span>{movie.vote_average}</span> */}
                 </div>
                 <p>{movie.overview}</p>

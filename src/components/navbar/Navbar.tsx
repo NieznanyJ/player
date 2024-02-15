@@ -5,29 +5,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faPlus } from "@fortawesome/free-solid-svg-icons";
 import NavbarSearchItem from "./NavbarSearchItem";
 import UserNavBox from "./UserNavBox";
-import { getPopularMovies, getPopularTVShows } from "@/lib/actions";
+
 
 import NavbarItem from "./NavbarItem";
 
-async function getInnerNavContent() {
-    const popularMovies = await getPopularMovies(1);
-    const popularTVShows = await getPopularTVShows(1);
-    return {
-        popularMovies,
-        popularTVShows,
-    };
-    
-}
-
-async function Navbar() {
 
 
-    const innerNavContent = await getInnerNavContent();
+ function Navbar() {
+
 
     const logged = true;
 
+
+
     return (
-        <nav className={styles.container}>
+        <nav className={`${styles.container} navbar`}>
             <div className={styles.wrapper}>
                 <div>
                     <span>Logo</span>
@@ -38,8 +30,8 @@ async function Navbar() {
                         <Link href="/">Home</Link>
                     </li>
                     <NavbarSearchItem />
-                    <NavbarItem title="Movies" popularContent={innerNavContent.popularMovies.results} />
-                    <NavbarItem title="TV Series" popularContent={innerNavContent.popularTVShows.results} />
+                    <NavbarItem title="Movies"  />
+                    <NavbarItem title="TV Series"  />
 
                     <li className={styles.navItem}>
                         <FontAwesomeIcon

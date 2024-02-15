@@ -28,12 +28,14 @@ function MovieList({ movies }: { movies: any[] }) {
         filterMovies();
     }, [filterMovies]);
 
+   
+
     return (
         <div className={styles.container}>
-            {movieList &&
+            {movieList && movieList.length !== 0 ?
                 movieList.map((movie: any) => {
-                    return <Movie key={movie.id} movie={movie} />;
-                })}
+                    return movie.poster_path && movie.backdrop_path && <Movie key={movie.id} movie={movie} />;
+                }) : <h1>No movies found</h1>}
         </div>
     );
 }

@@ -26,4 +26,17 @@
 .active {
   background-color: #3b82f6;
   color: #fff;
+  border: 1px solid #fff;
+  padding: 1em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.active:hover {
+  background-color: #3b82f6;
+}
+.active:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.active:last-child {
+  border-radius: 0 10px 10px 0;
 }/*# sourceMappingURL=pagination.module.css.map */

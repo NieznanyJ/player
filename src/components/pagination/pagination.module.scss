@@ -37,4 +37,19 @@ $lighBlue: #60a5fa;
 .active{
     background-color: $mainBlue;
     color: $white;
+    border: 1px solid $white;
+    padding: 1em;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $mainBlue;
+    }
+
+    &:first-child{
+        border-radius: 10px 0 0 10px;
+    }
+    &:last-child{
+        border-radius: 0 10px 10px 0;
+    }
 }

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import styles from './movie.module.css'
 function Movie({movie} : {movie: any}) {
   return (
-    <Link href={`/movie/${movie.id}`}>
+    <Link href={movie.title ? `/details/movie/${movie.id}` : `/details/tv/${movie.id}`}>
         <div className={styles.container}>
         <div className={styles.imageContainer}>
             <Image src={`${imagePath}${movie.poster_path}`} alt={movie.title ? movie.title : movie.name} fill/>

@@ -9,6 +9,7 @@ function Pagination() {
     const params = new URLSearchParams(searchParams);
     const pathname = usePathname();
     const router = useRouter();
+    const page = params.get("page") || 1;
 
     function handlePageChange(page: number = 1) {
         params.set("page", page.toString());
@@ -26,7 +27,7 @@ function Pagination() {
             {Array.from({ length: 5 }, (_, i) => (
                 <span
                     key={i}
-                    className={styles.page}
+                    className={String(page) === (i + 1).toString() ? styles.active : styles.page}
                     onClick={() => handlePageChange(i + 1)}
                 >
                     {i + 1}

@@ -6,7 +6,7 @@ import Wrapper from '@/components/wrapper/Wrapper';
 
 export default function Home() {
   return (
-    <main>
+    <main className="main">
         <MainMovieCarousel />
         <Wrapper />
 

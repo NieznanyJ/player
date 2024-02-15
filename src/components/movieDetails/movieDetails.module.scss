@@ -20,6 +20,20 @@ $lighBlue: #60a5fa;
     img{
         filter: brightness(0.5);
         object-fit: cover;
+        
+        @media screen and (max-width: 576px)
+        {
+
+            object-fit: scale-down;
+            object-position: top;
+            
+            filter: brightness(1);
+        }
+    }
+    @media screen and (max-width: 576px)
+    {
+        top: 80px;
+        
     }
 }
 
@@ -33,15 +47,42 @@ $lighBlue: #60a5fa;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    z-index: 1;
     gap: 1em;
     
 
     p{
-        max-width: 60%;
+        max-width: 50%;
+
+        @media screen and (max-width: 576px){
+            max-width: 100%;
+            padding: 1em;
+            font-size: smaller;
+            text-align: center;
+            
+        }
+
+        @media screen and (max-width: 768px){
+            max-width: 75%;
+            
+        }
     }
 
     h1{
         font-size: 2em;
+
+        @media screen and (max-width: 576px){
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 576px){
+        margin-top: 2em;
+        width: 100%;
+        top: calc(50% + 80px);
+        left: 0;
+        align-items: center;
+        
     }
 }
 
@@ -49,6 +90,12 @@ $lighBlue: #60a5fa;
     display: flex;
     align-items: center;
     gap: 1em;
+
+    @media screen and (max-width: 576px){
+        flex-wrap: wrap;
+        justify-content: center;
+        
+    }
 }
 
 .buttonContainer{
