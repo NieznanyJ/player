@@ -18,7 +18,7 @@ async function InnerNav({
     return (
         <div className={styles.innerNavigation}>
             <div className={styles.innerNavigationCategoryList}>
-                <Link href={`/categories/${popular.toLowerCase().split(" ")[0]}?page=1`}><h3 className={styles.innerNavSmallerScreenLinks}>
+                <Link href={`/categories/${popular.toLowerCase().split(" ")[0]}?page=1`}><h3>
                         Categories
                     </h3></Link>
                 <Link

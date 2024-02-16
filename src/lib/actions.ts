@@ -1,14 +1,10 @@
-
-
 const options = {
     method: "GET",
     headers: {
         accept: "application/json",
-        Authorization: process.env.NEXT_PUBLIC_API_KEY || '',
+        Authorization: process.env.NEXT_PUBLIC_API_KEY || "",
     },
 };
-
-
 
 async function authenticate() {
     try {
@@ -36,8 +32,7 @@ async function getPopularMovies(page: number = 1) {
     }
 }
 
-
-async function getPopularTVShows(page: number = 1 ){
+async function getPopularTVShows(page: number = 1) {
     try {
         const res = await fetch(
             `https://api.themoviedb.org/3/tv/popular?language=en-US&page=${page}`,
@@ -62,8 +57,6 @@ async function getTrendingMovies() {
         console.error("Error fetching trending movies:", error);
     }
 }
-
-
 
 async function getTrendingTVShows() {
     try {
@@ -102,7 +95,6 @@ async function getTVShowDetails(tvShowId: number) {
     } catch (error) {
         console.error(error);
     }
-
 }
 
 async function getGenres() {
@@ -117,8 +109,6 @@ async function getGenres() {
         console.error(error);
     }
 }
-
-
 
 async function getMovieTags(id: string) {
     try {
@@ -159,8 +149,6 @@ async function getMoviesByTag(tagId: string) {
     }
 }
 
-
-
 async function getMoviesByGenre(genre: number, page: number) {
     const genres = await getGenres();
 
@@ -173,8 +161,7 @@ async function getMoviesByGenre(genre: number, page: number) {
                 `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreId.id}`,
                 options
             );
-        }
-        else{
+        } else {
             res = await fetch(
                 `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
                 options
@@ -186,7 +173,6 @@ async function getMoviesByGenre(genre: number, page: number) {
         console.error(error);
     }
 }
-
 
 async function getTVShowsByGenre(genre: number, page: number) {
     const genres = await getGenres();
@@ -200,14 +186,39 @@ async function getTVShowsByGenre(genre: number, page: number) {
                 `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreId.id}`,
                 options
             );
-        }
-        else{
+        } else {
             res = await fetch(
                 `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=popularity.desc`,
-                
+
                 options
             );
         }
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getRecommendedMovies(id: number) {
+    try {
+        const res = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`,
+            options
+        );
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getRecommendedTV(id: number) {
+    try {
+        const res = await fetch(
+            `https://api.themoviedb.org/3/tv/${id}/recommendations?language=en-US&page=1`,
+            options
+        );
         const data = await res.json();
         return data;
     } catch (error) {
@@ -228,5 +239,7 @@ export {
     getMoviesByTag,
     getMovieTags,
     getSearchedMovies,
-    getGenres
+    getRecommendedMovies,
+    getRecommendedTV,
+    getGenres,
 };

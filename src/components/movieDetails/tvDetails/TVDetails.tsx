@@ -1,38 +1,38 @@
 import React from "react";
 import { imagePath } from "@/lib/utils";
 import Image from "next/image";
-import styles from "./movieDetails.module.css"
+import styles from "../movieDetails.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-function MovieDetails({ movie }: { movie: any }) {
+
+function TVDetails({ tv }: { tv: any }) {
 
     const logged = true;
-    console.log(movie.seasons)
+    
 
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
                 <Image
-                    src={`${imagePath}${movie.backdrop_path ? movie.backdrop_path : movie.poster_path }`}
-                    alt={movie.title}
+                    src={`${imagePath}${tv.backdrop_path ? tv.backdrop_path : tv.poster_path }`}
+                    alt={tv.title}
                     fill
                 />
             </div>
             <div className={styles.infoContainer}>
-                <h1>{movie.title ? movie.title : movie.name}</h1>
+                <h1>{tv.title ? tv.title : tv.name}</h1>
                 <div className={styles.innerInfo}>
                     <div className={styles.categoryInfo}>
-                        {movie.genres && movie.genres.map(
+                        {tv.genres && tv.genres.map(
                             (genre: { id: number; name: string }) => {
                                 return <span key={genre.id}>{genre.name}</span>;
                             }
                         )}
                     </div>
-                    <span>{movie.release_date ? movie.release_date.slice(0,4) : movie.first_air_date.slice(0,4)}</span>
-                    {/* <span>{movie.vote_average}</span> */}
+                    <span>{tv.release_date ? tv.release_date.slice(0,4) : tv.first_air_date.slice(0,4)}</span>
                 </div>
-                <p>{movie.overview}</p>
+                <p>{tv.overview}</p>
                 <div className={styles.buttonContainer}>
                 <button type="button">Watch</button>
                 {logged && <button type="button">
@@ -44,4 +44,4 @@ function MovieDetails({ movie }: { movie: any }) {
     );
 }
 
-export default MovieDetails;
+export default TVDetails;

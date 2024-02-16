@@ -116,4 +116,8 @@
 }
 .buttonContainer button:last-child:hover {
   background-color: #60a5fa;
+}
+
+.recomendedWrapper {
+  display: flex;
 }/*# sourceMappingURL=movieDetails.module.css.map */
