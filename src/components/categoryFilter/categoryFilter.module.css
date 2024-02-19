@@ -10,6 +10,13 @@
     text-align: center;
   }
 }
+@media screen and (max-width: 576px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}
 
 .genreList {
   position: absolute;
@@ -26,17 +33,27 @@
   padding: 0;
   list-style: none;
   padding: 1em;
-  background-color: #000;
+  background-color: #fff;
+  color: #000;
   border-radius: 0 20px 20px 20px;
+  border: 2px solid #3b82f6;
   overflow: hidden;
   z-index: 10;
 }
 .genreList li {
   transition: all 0.2s ease;
-}
-.genreList li:hover {
-  color: #3b82f6;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .genreList li:hover {
+    background-color: #3b82f6;
+    color: #fff;
+  }
+}
+@media screen and (min-width: 768px) {
+  .genreList li:hover {
+    color: #3b82f6;
+  }
 }
 @media screen and (max-width: 768px) {
   .genreList {
@@ -44,9 +61,10 @@
     flex-direction: column;
     flex-wrap: nowrap;
     padding: 0;
-    gap: 1em;
+    gap: 0;
     width: 100%;
     max-height: 400px;
+    border-radius: 0 0 20px 20px;
     overflow-y: scroll;
   }
   .genreList li {
@@ -54,10 +72,6 @@
     justify-content: center;
     align-items: center;
     padding: 15px 0;
-    border-bottom: 1px solid #fff;
-  }
-  .genreList li:last-child {
-    border: none;
   }
 }
 
@@ -68,7 +82,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1em;
-  border: 2px solid #fff;
+  border: 2px solid #000;
   border-radius: 10px;
   padding: 1em;
   transition: all 0.2s ease;
@@ -88,8 +102,8 @@
   justify-content: space-between;
   align-items: center;
   gap: 1em;
-  border: 2px solid #3b82f6;
-  border-radius: 10px 10px 10px 0;
+  border: 2px solid #3b82f6 !important;
+  border-radius: 10px 10px 0 0;
   padding: 1em;
   transition: all 0.2s ease;
   cursor: pointer;

@@ -14,6 +14,11 @@ async function TVDetailsPage({ params }: { params: { id: string } }) {
     return (
         <section>
             <TVDetails tv={tv} />
+            <div className={styles.overview}>
+                <h2>Overview</h2>
+            <p>{tv.overview}</p>
+            </div>
+            
             <div className={styles.recomendedWrapper}>
             <SeasonList tv={tv} />
             <RecommendedList content={tv} />

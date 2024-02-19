@@ -1,0 +1,64 @@
+
+$black: #000;
+$white: #fff;
+$mainBlue: #3b82f6;
+$lightBlue: #60a5fa;
+
+.registerForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    padding: 1em;
+    background-color: red;
+    border-radius: 20px;
+    color: $black;
+
+    input{
+        width: 100%;
+        padding: 1em;
+        outline: none;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        caret-color: $mainBlue;
+        color: $black;
+        font-size: 0.8em;
+
+        &:focus{
+            border: 2px solid $mainBlue;
+        }
+
+
+       
+    }
+}
+
+.loginLink{
+    color: $mainBlue;
+    cursor: pointer;
+
+    &:hover{
+        color: $lightBlue;
+    }
+}
+
+.button{
+    background-color: $mainBlue;
+    padding: .5em;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: $white;
+    cursor: pointer;
+
+
+    &:hover{
+        background-color: $lightBlue;
+    }
+}

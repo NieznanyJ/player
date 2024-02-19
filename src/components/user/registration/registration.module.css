@@ -1,0 +1,50 @@
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 1em;
+  background-color: red;
+  border-radius: 20px;
+  color: #000;
+}
+.registerForm input {
+  width: 100%;
+  padding: 1em;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  caret-color: #3b82f6;
+  color: #000;
+  font-size: 0.8em;
+}
+.registerForm input:focus {
+  border: 2px solid #3b82f6;
+}
+
+.loginLink {
+  color: #3b82f6;
+  cursor: pointer;
+}
+.loginLink:hover {
+  color: #60a5fa;
+}
+
+.button {
+  background-color: #3b82f6;
+  padding: 0.5em;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #60a5fa;
+}/*# sourceMappingURL=registration.module.css.map */

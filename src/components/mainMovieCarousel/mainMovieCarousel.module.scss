@@ -9,6 +9,11 @@ $lighBlue: #60a5fa;
     width: 100%;
     height: 90vh;
     align-self: flex-start;
+    top: 80px;
+
+    @media screen and (max-width: 768px) {
+        top: 80px;
+    }
 }
 
 .carouselImage {
@@ -29,7 +34,7 @@ $lighBlue: #60a5fa;
     align-items: flex-start;
     gap: 1em;
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 40%;
     transform: translate(-50%, -50%);
     color: $white;
@@ -37,7 +42,7 @@ $lighBlue: #60a5fa;
     z-index: 1;
     cursor: grab;
 
-    h1{
+    h1 {
         font-size: 3em;
     }
 
@@ -50,16 +55,20 @@ $lighBlue: #60a5fa;
             transition: all 0.2s ease;
         }
 
-        @media screen and (max-width: 1200px)
-    {
-        display: none;
-    }
+        @media screen and (max-width: 768px){
+            top: 60%;
+            left: 20%;
+        }
+
+        @media screen and (max-width: 1200px) {
+            display: none;
+        }
 
 
     }
 
 
-  
+
 }
 
 

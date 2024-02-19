@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faPlus } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
 
-function NavList({setOpenNavList, hamburgerRef} : {setOpenNavList: React.Dispatch<React.SetStateAction<boolean>>,  hamburgerRef: React.RefObject<HTMLDivElement>}) {
+function NavList({openNavList ,setOpenNavList, hamburgerRef} : {openNavList: boolean,setOpenNavList: React.Dispatch<React.SetStateAction<boolean>>,  hamburgerRef: React.RefObject<HTMLDivElement>}) {
 
     const logged = true;
     const mobileNavRef = useRef<HTMLDivElement>(null);
@@ -32,11 +32,9 @@ function NavList({setOpenNavList, hamburgerRef} : {setOpenNavList: React.Dispatc
       }, [setOpenNavList, hamburgerRef]);
 
     return (
-        <motion.div 
-            initial={{ x: "-100%" }}
-            animate={{ x: "0" }}
-            transition={{duration: 0.2}}
-            className={styles.navlistContainer}
+        <div 
+            
+            className={openNavList ? `${styles.navlistContainerOpen} ${styles.navlistContainer}` : styles.navlistContainer}
             ref={mobileNavRef}
         >
             <ul className={styles.navList}>
@@ -65,7 +63,7 @@ function NavList({setOpenNavList, hamburgerRef} : {setOpenNavList: React.Dispatc
                         Watch list
                     </li>
             </ul>
-        </motion.div>
+        </div>
     );
 }
 

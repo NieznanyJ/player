@@ -25,31 +25,9 @@ function NavbarSearchItem({
                     setOpenNavList && setOpenNavList(false);
     }
 
-    useEffect(() => {
-        const navbarElement = document.querySelector(".navbar");
-        setNavbar(navbarElement as HTMLElement);
-    }, []);
+  
 
-    //Changes navbar color on scroll
-    useEffect(() => {
-        const handleScroll = () => {
-            if (navbar) {
-                const scrollPosition = window.scrollY;
-
-                if (scrollPosition > navbar.offsetHeight) {
-                    navbar.style.background = "black";
-                } else {
-                    navbar.style.background =
-                        "linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%)";
-                }
-            }
-        };
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [navbar]);
+    
 
     return (
         <div className={styles.navbarSearchContainer}>

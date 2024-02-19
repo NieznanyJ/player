@@ -13,6 +13,7 @@ import LoadingIcon from "../loading/LoadingIcon";
 import SliderArrowRight from "@/components/sliderArrow/SliderArrowRight"
 import SliderArrowLeft from "@/components/sliderArrow/SliderArrowLeft"
 
+
 function SmallMovieCarousel({
     movies,
     title,
@@ -108,6 +109,7 @@ function SmallMovieCarousel({
                                     key={movie.id}
                                     fallback={<LoadingIcon />}
                                 >
+                                    <Link href={title.split(" ")[1].toLowerCase().includes("movie") ? `/details/movie/${movie.id}` : `/details/tv/${movie.id}`}>
                                     <div className={styles.carouselItem}>
                                         <div className={styles.carousel}>
                                             <Image
@@ -133,6 +135,8 @@ function SmallMovieCarousel({
                                             </h3>
                                         </div>
                                     </div>
+                                        </Link>
+                                    
                                 </Suspense>
                             )
                         );

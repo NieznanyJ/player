@@ -9,11 +9,18 @@
 }
 
 .recommendedList {
+  max-height: 700px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0 20px;
   gap: 1em;
   list-style: none;
+  overflow-y: scroll;
+}
+@media screen and (max-width: 768px) {
+  .recommendedList {
+    grid-template-columns: 1fr;
+  }
 }
 
 .recommendedImageContainer {
@@ -22,8 +29,23 @@
   height: 300px;
   border-radius: 20px;
 }
+@media screen and (max-width: 768px) {
+  .recommendedImageContainer {
+    width: 100%;
+  }
+}
 
 .recommendedImage {
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 20px;
+}
+
+.recommendedInfo {
+  padding: 1em;
+}
+@media screen and (max-width: 768px) {
+  .recommendedInfo {
+    align-items: center;
+  }
 }/*# sourceMappingURL=recommended.module.css.map */

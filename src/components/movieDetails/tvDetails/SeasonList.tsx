@@ -14,11 +14,11 @@ function SeasonList({tv}: {tv: any}) {
         {tv && tv.seasons?.map((season: any) => {
             return (
                 <li key={season.id} className={styles.seasonInfo}>
-                    <div className={styles.seasonImageContainer}><Image className={styles.seasonImage} src={`${imagePath}${season.poster_path ? season.poster_path : tv.poster_path}`} alt={season.name} fill/></div>
+                    <div className={styles.seasonImageContainer}><Image className={styles.seasonImage} src={`${imagePath}${season.poster_path ? season.poster_path : tv.poster_path}`} alt="season" fill/></div>
                     <h3>{season.name}</h3>
                     <div className={styles.seasonInfoText}>
                     
-                    <p>{season.air_date.slice(0,4)}</p>
+                    <p>{season.air_date && season.air_date.slice(0,4)}</p>
                     <p>{season.episode_count} episodes</p>
                     </div>
                     

@@ -16,7 +16,7 @@ $lighBlue: #60a5fa;
     background-color: $black;
     z-index: 20;
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 992px){
         display: none;
     }
 }
@@ -31,9 +31,16 @@ $lighBlue: #60a5fa;
     justify-content: flex-start;
     width: 70vw;
     z-index: 100;
-    transform: translateX(100px);
-    transition: all 1s ease;
+    transform: translateX(-100%);
+    transition: all .2s ease;
     z-index: 20;
+}
+
+.navlistContainerOpen{
+    
+    transform: translateX(0);
+    transition: all .2s ease;
+    
 }
 
 .navList{
@@ -96,4 +103,23 @@ $lighBlue: #60a5fa;
     border-radius: 0 10px 10px 10px;
     background-color: #333;
     z-index: 30;
+}
+
+
+.hamburger{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+
+.hamburgerLine{
+    width: 30px;
+    height: 3px;
+    background-color: $white;
+    border-radius: 20px;
+    transition: all 0.2s ease;
 }

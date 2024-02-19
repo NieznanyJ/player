@@ -32,7 +32,7 @@ function MovieDetails({ movie }: { movie: any }) {
                     <span>{movie.release_date ? movie.release_date.slice(0,4) : movie.first_air_date.slice(0,4)}</span>
                     {/* <span>{movie.vote_average}</span> */}
                 </div>
-                <p>{movie.overview}</p>
+                
                 <div className={styles.buttonContainer}>
                 <button type="button">Watch</button>
                 {logged && <button type="button">

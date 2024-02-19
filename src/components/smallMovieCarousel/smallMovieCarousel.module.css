@@ -7,6 +7,8 @@
 }
 .carouselWrapper h2 {
   margin-bottom: 2em;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .carouselWrapper h2:hover {
   text-decoration: underline;
@@ -17,7 +19,7 @@
     margin-bottom: 20px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .carouselWrapper {
     width: 100%;
     margin: 0;
@@ -39,17 +41,13 @@
   gap: 1em;
   width: 100%;
   border-radius: 20px;
+  border: 2px solid transparent;
   padding: 1em;
   margin: 1px;
 }
-@media screen and (max-width: 768px) {
-  .carouselItem {
-    padding: 0;
-  }
-  .carouselItem:hover {
-    border: 2px solid #3b82f6;
-    transition: all 0.2s ease;
-  }
+.carouselItem:hover {
+  border: 2px solid #3b82f6;
+  transition: all 0.2s ease;
 }
 
 .carouselImage {

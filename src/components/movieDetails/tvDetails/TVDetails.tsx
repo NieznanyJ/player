@@ -32,13 +32,15 @@ function TVDetails({ tv }: { tv: any }) {
                     </div>
                     <span>{tv.release_date ? tv.release_date.slice(0,4) : tv.first_air_date.slice(0,4)}</span>
                 </div>
-                <p>{tv.overview}</p>
+                
                 <div className={styles.buttonContainer}>
                 <button type="button">Watch</button>
                 {logged && <button type="button">
                     <FontAwesomeIcon icon={faPlus} />
                     Add to watchlist</button>}
                 </div>
+
+                
             </div>
         </div>
     );

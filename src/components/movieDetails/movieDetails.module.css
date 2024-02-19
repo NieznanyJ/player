@@ -2,6 +2,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  color: #fff;
+}
+@media screen and (max-width: 576px) {
+  .container {
+    color: #000;
+  }
 }
 
 .imageContainer {
@@ -10,6 +16,7 @@
   width: 100%;
   height: auto;
   min-height: 100vh;
+  top: 80px;
 }
 .imageContainer img {
   filter: brightness(0.5);
@@ -120,4 +127,36 @@
 
 .recomendedWrapper {
   display: flex;
+}
+@media screen and (max-width: 1200px) {
+  .recomendedWrapper {
+    flex-direction: column;
+  }
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 97%;
+  margin: auto;
+  margin-top: 5em;
+  padding: 1em;
+}
+@media screen and (max-width: 576px) {
+  .overview {
+    position: relative;
+    bottom: 9em;
+    margin-top: 0;
+    align-items: center;
+    text-align: center;
+  }
+}
+.overview p {
+  width: 50%;
+}
+@media screen and (max-width: 768px) {
+  .overview p {
+    width: 100%;
+  }
 }/*# sourceMappingURL=movieDetails.module.css.map */
