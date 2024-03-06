@@ -5,7 +5,6 @@ import MovieDetails from "@/components/movieDetails/MovieDetails";
 async function MovieDetailsPage({ params }: { params: { id: string } }) {
     const { id } = params;
     const movie = await getMovieDetails(parseInt(id));
-    console.log(movie);
 
     return (
         <section>

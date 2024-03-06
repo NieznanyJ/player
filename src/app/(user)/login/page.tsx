@@ -1,4 +1,5 @@
 import React from "react";
+import LoginForm from "@/components/user/login/LoginForm";
 
 
 
@@ -6,7 +7,7 @@ import React from "react";
 async function LoginPage() {
     return (
         <section className="inner-page">
-           ascasc
+           <LoginForm />
         </section>
     );
 }

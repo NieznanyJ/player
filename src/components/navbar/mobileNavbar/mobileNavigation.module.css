@@ -109,4 +109,24 @@
   background-color: #fff;
   border-radius: 20px;
   transition: all 0.2s ease;
+}
+
+.userAccount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  color: #fff;
+}
+.userAccount button {
+  padding: 1em;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.userAccount button:hover {
+  background-color: #3b82f6;
+  transition: all 0.2s ease;
 }/*# sourceMappingURL=mobileNavigation.module.css.map */

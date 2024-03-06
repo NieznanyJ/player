@@ -1,0 +1,37 @@
+$black: #000;
+$white: #fff;
+$mainBlue: #3b82f6;
+$lighBlue: #60a5fa;
+
+.switcher{
+    display: flex;
+    align-items: center;
+    border: 2px solid $black;
+    border-radius: 10px;
+    width: 30%;
+    max-width: 400px;
+    
+    
+    button{
+        flex: 1;
+        padding: 1em; 
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-weight: medium;
+        cursor: pointer;
+
+
+        &:nth-child(2){
+            border-right: 2px solid black;
+            border-left: 2px solid black;
+        }
+
+        &:hover{
+            background-color: $mainBlue;
+            color: $white;
+            transition: all .2s ease;
+        }
+    }
+    
+}

@@ -4,7 +4,6 @@ import { imagePath } from '@/lib/utils'
 import styles from './seasonList.module.css'
 
 function SeasonList({tv}: {tv: any}) {
-    console.log(tv.id)
 
   return (
     <section className={styles.container}>

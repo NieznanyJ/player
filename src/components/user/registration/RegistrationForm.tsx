@@ -1,5 +1,5 @@
 import React from 'react'
-import { addUser } from '@/lib/db'
+import { addUser, getUser } from '@/lib/db'
 import styles from './registration.module.css'
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -8,6 +8,7 @@ async function addNewUser(data:FormData) {
     "use server";
     try{
         await addUser(data);
+       
     }
     catch(error){
         console.error(error)

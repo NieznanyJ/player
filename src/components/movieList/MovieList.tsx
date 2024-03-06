@@ -4,11 +4,12 @@ import React, { useEffect, useState, useCallback } from "react";
 import Movie from "./movie/Movie";
 import { useSearchParams } from "next/navigation";
 import styles from "./movieList.module.css";
-
+import {useRouter} from 'next/navigation';
 
 
 function MovieList({ movies }: { movies: any[] }) {
     const searchParams = useSearchParams();
+    const router = useRouter()
 
     const [movieList, setMovieList] = useState<any[]>([]);
 
@@ -28,6 +29,9 @@ function MovieList({ movies }: { movies: any[] }) {
         filterMovies();
     }, [filterMovies]);
 
+    useEffect(()=>{
+        router.refresh();
+    },[])
    
 
     return (
@@ -35,7 +39,7 @@ function MovieList({ movies }: { movies: any[] }) {
             {movieList && movieList.length !== 0 ?
                 movieList.map((movie: any) => {
                     return movie.poster_path && movie.backdrop_path && <Movie key={movie.id} movie={movie} />;
-                }) : <h1>No movies found</h1>}
+                }) : <h1>No media found</h1>}
         </div>
     );
 }

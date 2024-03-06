@@ -2,13 +2,28 @@ import React from "react";
 import { imagePath } from "@/lib/utils";
 import Image from "next/image";
 import styles from "../movieDetails.module.scss"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { nextConfig } from "@/lib/auth.config";
+import { getServerSession } from "next-auth";
+import {getUsersWatchlist, removeFromWatchlist, addToWatchlist} from '@/lib/db'
+import AddToWatchlist from '@/components/movieDetails/AddToWatchlis'
 
 
-function TVDetails({ tv }: { tv: any }) {
 
-    const logged = true;
+async function TVDetails({ tv }: { tv: any }) {
+
+    const session = await getServerSession(nextConfig);
+    const watchlist = await getUsersWatchlist(session?.user?.userId ? session?.user?.userId : 0, 'tv');
+    
+    
+    async function addMedia() {
+        "use server"
+        await addToWatchlist(session?.user?.userId ? session?.user?.userId : 0, tv.id, 'tv');
+    }
+
+    async function removeMedia(){
+        "use server"
+        await removeFromWatchlist(session?.user?.userId ? session?.user?.userId : 0, tv.id, 'tv')
+    }
     
 
     return (
@@ -35,9 +50,7 @@ function TVDetails({ tv }: { tv: any }) {
                 
                 <div className={styles.buttonContainer}>
                 <button type="button">Watch</button>
-                {logged && <button type="button">
-                    <FontAwesomeIcon icon={faPlus} />
-                    Add to watchlist</button>}
+                {session && <AddToWatchlist addMedia={addMedia} removeMedia={removeMedia} includes={watchlist ? watchlist.watchlist.includes(tv.id) : false}/>}
                 </div>
 
                 

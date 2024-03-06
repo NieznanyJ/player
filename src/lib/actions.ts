@@ -13,7 +13,6 @@ async function authenticate() {
             options
         );
         const data = await response.json();
-        console.log(data);
     } catch (error) {
         console.error(error);
     }
@@ -226,6 +225,53 @@ async function getRecommendedTV(id: number) {
     }
 }
 
+async function getWatchlist(watchlist: number[], mediaType:string) {
+    try {
+        const fetchMediaData = async (mediaId: number) => {
+            const res =   await fetch(
+                `https://api.themoviedb.org/3/${mediaType}/${mediaId}?language=en-US`,
+                options
+            );
+            return await res.json();
+        };
+
+        const watchlistData = await Promise.all(watchlist.map(fetchMediaData));
+
+        return watchlistData;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function addToWatchlist(
+    media_id: number,
+    media_type: "movie" | "tv",
+    watchlist: boolean,
+    userId: number
+) {
+    const options = {
+        method: "POST",
+        headers: {
+            accept: "application/json",
+            "content-type": "application/json",
+            Authorization: process.env.NEXT_PUBLIC_API_KEY || "",
+        },
+        body: JSON.stringify({ media_type, media_id, watchlist }),
+    };
+
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/account/${userId}/watchlist`,
+            options
+        );
+        const data = await response.json();
+        console.log("Media added to watchlist");
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export {
     authenticate,
     getPopularMovies,
@@ -241,5 +287,7 @@ export {
     getSearchedMovies,
     getRecommendedMovies,
     getRecommendedTV,
+    getWatchlist,
+    addToWatchlist,
     getGenres,
 };
